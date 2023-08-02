@@ -1,0 +1,83 @@
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 2,
+      "title": "radarr:latest",
+      "description": "This is a Portainer template for deploying radarr:latest.",
+      "categories": ["Media"],
+      "platform": "linux",
+      "note": "",
+      "restart_policy": "unless-stopped",
+      "network": "bridge",
+      "env": [ ... ],
+      "volumes": [ ... ],
+      "ports": [ ... ]
+    },
+    {
+      "type": 2,
+      "title": "sonarr:latest",
+      "description": "This is a Portainer template for deploying sonarr:latest.",
+      "categories": ["Media"],
+      "platform": "linux",
+      "note": "",
+      "restart_policy": "unless-stopped",
+      "network": "bridge",
+      "env": [ ... ],
+      "volumes": [ ... ],
+      "ports": [ ... ]
+    },
+    {
+      "type": 2,
+      "title": "prowlarr:latest",
+      "description": "This is a Portainer template for deploying prowlarr:latest.",
+      "categories": ["Media"],
+      "platform": "linux",
+      "note": "",
+      "restart_policy": "unless-stopped",
+      "network": "bridge",
+      "env": [ ... ],
+      "volumes": [ ... ],
+      "ports": [ ... ]
+    },
+    {
+      "type": 2,
+      "title": "overseerr:latest",
+      "description": "This is a Portainer template for deploying overseerr:latest.",
+      "categories": ["Media"],
+      "platform": "linux",
+      "note": "",
+      "restart_policy": "unless-stopped",
+      "network": "bridge",
+      "env": [ ... ],
+      "volumes": [ ... ],
+      "ports": [ ... ]
+    },
+    {
+      "type": 2,
+      "title": "plex:latest",
+      "description": "This is a Portainer template for deploying plex:latest.",
+      "categories": ["Media"],
+      "platform": "linux",
+      "note": "",
+      "restart_policy": "unless-stopped",
+      "network": "bridge",
+      "env": [ ... ],
+      "volumes": [ ... ],
+      "ports": [ ... ]
+    },
+    {
+      "type": 2,
+      "title": "pia-qbittorrent:latest",
+      "description": "This is a Portainer template for deploying pia-qbittorrent:latest.",
+      "categories": ["Media"],
+      "platform": "linux",
+      "note": "",
+      "restart_policy": "unless-stopped",
+      "network": "bridge",
+      "env": [ ... ],
+      "volumes": [ ... ],
+      "ports": [ ... ]
+    }
+  ]
+}
