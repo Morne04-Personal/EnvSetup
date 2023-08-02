@@ -1,491 +1,81 @@
 {
-  "version": "2",
-  "templates": [
+  "type": 1,
+  "name": "radarr:latest",
+  "image": "lscr.io/linuxserver/radarr:latest",
+  "description": "This is a Portainer template for deploying radarr:latest.",
+  "categories": [
+    "Media"
+  ],
+  "restart_policy": "unless-stopped",
+  "env": [
     {
-      "type": 1,
-      "name": "radarr:latest",
-      "image": "lscr.io/linuxserver/radarr:latest",
-      "description": "This is a Portainer template for deploying radarr:latest.",
-      "categories": [
-        "Media"
-      ],
-      "restart_policy": "unless-stopped",
-      "env": [
-        {
-          "name": "TZ",
-          "default": "Africa/Johannesburg"
-        },
-        {
-          "name": "PUID",
-          "default": "0"
-        },
-        {
-          "name": "PGID",
-          "default": "0"
-        },
-        {
-          "name": "PS1",
-          "default": "$(whoami)@$(hostname):$(pwd)\\$"
-        },
-        {
-          "name": "PATH",
-          "default": "/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        },
-        {
-          "name": "HOME",
-          "default": "/root"
-        },
-        {
-          "name": "TERM",
-          "default": "xterm"
-        },
-        {
-          "name": "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
-          "default": "0"
-        },
-        {
-          "name": "S6_VERBOSITY",
-          "default": "1"
-        },
-        {
-          "name": "S6_STAGE2_HOOK",
-          "default": "/docker-mods"
-        },
-        {
-          "name": "VIRTUAL_ENV",
-          "default": "/lsiopy"
-        },
-        {
-          "name": "LSIO_FIRST_PARTY",
-          "default": "true"
-        },
-        {
-          "name": "XDG_CONFIG_HOME",
-          "default": "/config/xdg"
-        }
-      ],
-      "volumes": [
-        {
-          "bind": "${/downloads/movies}",
-          "container": "/movies"
-        },
-        {
-          "bind": "${/containers/radarr/config}",
-          "container": "/config"
-        },
-        {
-          "bind": "${/downloads}",
-          "container": "/downloads"
-        }
-      ],
-      "ports": [
-        "${1001}:7878"
-      ]
+      "name": "TZ",
+      "default": "Africa/Johannesburg"
     },
     {
-      "type": 1,
-      "name": "sonarr:latest",
-      "image": "lscr.io/linuxserver/sonarr:latest",
-      "description": "This is a Portainer template for deploying sonarr:latest.",
-      "categories": [
-        "Media"
-      ],
-      "restart_policy": "unless-stopped",
-      "env": [
-        {
-          "name": "PGID",
-          "default": "0"
-        },
-        {
-          "name": "TZ",
-          "default": "Africa/Johannesburg"
-        },
-        {
-          "name": "PUID",
-          "default": "0"
-        },
-        {
-          "name": "PATH",
-          "default": "/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        },
-        {
-          "name": "HOME",
-          "default": "/root"
-        },
-        {
-          "name": "LANGUAGE",
-          "default": "en_US.UTF-8"
-        },
-        {
-          "name": "LANG",
-          "default": "en_US.UTF-8"
-        },
-        {
-          "name": "TERM",
-          "default": "xterm"
-        },
-        {
-          "name": "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
-          "default": "0"
-        },
-        {
-          "name": "S6_VERBOSITY",
-          "default": "1"
-        },
-        {
-          "name": "S6_STAGE2_HOOK",
-          "default": "/docker-mods"
-        },
-        {
-          "name": "VIRTUAL_ENV",
-          "default": "/lsiopy"
-        },
-        {
-          "name": "LSIO_FIRST_PARTY",
-          "default": "true"
-        },
-        {
-          "name": "XDG_CONFIG_HOME",
-          "default": "/config/xdg"
-        },
-        {
-          "name": "SONARR_BRANCH",
-          "default": "main"
-        }
-      ],
-      "volumes": [
-        {
-          "bind": "${/containers/sonarr/config}",
-          "container": "/config"
-        },
-        {
-          "bind": "${/downloads}",
-          "container": "/downloads"
-        },
-        {
-          "bind": "${/downloads/series/tv}",
-          "container": "/tv"
-        }
-      ],
-      "ports": [
-        "${1002}:8989"
-      ]
+      "name": "PUID",
+      "default": "0"
     },
     {
-      "type": 1,
-      "name": "prowlarr:latest",
-      "image": "lscr.io/linuxserver/prowlarr:latest",
-      "description": "This is a Portainer template for deploying prowlarr:latest.",
-      "categories": [
-        "Media"
-      ],
-      "restart_policy": "unless-stopped",
-      "env": [
-        {
-          "name": "PUID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "default": "1000"
-        },
-        {
-          "name": "TZ",
-          "default": "Africa/Johannesburg"
-        },
-        {
-          "name": "PATH",
-          "default": "/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        },
-        {
-          "name": "PS1",
-          "default": "$(whoami)@$(hostname):$(pwd)\\$ "
-        },
-        {
-          "name": "HOME",
-          "default": "/root"
-        },
-        {
-          "name": "TERM",
-          "default": "xterm"
-        },
-        {
-          "name": "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
-          "default": "0"
-        },
-        {
-          "name": "S6_VERBOSITY",
-          "default": "1"
-        },
-        {
-          "name": "S6_STAGE2_HOOK",
-          "default": "/docker-mods"
-        },
-        {
-          "name": "VIRTUAL_ENV",
-          "default": "/lsiopy"
-        },
-        {
-          "name": "LSIO_FIRST_PARTY",
-          "default": "true"
-        },
-        {
-          "name": "XDG_CONFIG_HOME",
-          "default": "/config/xdg"
-        }
-      ],
-      "volumes": [
-        {
-          "bind": "${/containers/prowlarr/data}",
-          "container": "/config:rw"
-        }
-      ],
-      "ports": [
-        "${1003}:9696"
-      ]
+      "name": "PGID",
+      "default": "0"
     },
     {
-      "type": 1,
-      "name": "overseerr:latest",
-      "image": "lscr.io/linuxserver/overseerr:latest",
-      "description": "This is a Portainer template for deploying overseerr:latest.",
-      "categories": [
-        "Media"
-      ],
-      "restart_policy": "unless-stopped",
-      "env": [
-        {
-          "name": "TZ",
-          "default": "Africa/Johannesburg"
-        },
-        {
-          "name": "PUID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "default": "1000"
-        },
-        {
-          "name": "PS1",
-          "default": "$(whoami)@$(hostname):$(pwd)\\$"
-        },
-        {
-          "name": "PATH",
-          "default": "/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        },
-        {
-          "name": "HOME",
-          "default": "/config"
-        },
-        {
-          "name": "TERM",
-          "default": "xterm"
-        },
-        {
-          "name": "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
-          "default": "0"
-        },
-        {
-          "name": "S6_VERBOSITY",
-          "default": "1"
-        },
-        {
-          "name": "S6_STAGE2_HOOK",
-          "default": "/docker-mods"
-        },
-        {
-          "name": "VIRTUAL_ENV",
-          "default": "/lsiopy"
-        },
-        {
-          "name": "LSIO_FIRST_PARTY",
-          "default": "true"
-        }
-      ],
-      "volumes": [
-        {
-          "bind": "${/containers/overseerr/appdata/config}",
-          "container": "/config"
-        }
-      ],
-      "ports": [
-        "${1004}:5055"
-      ]
+      "name": "PS1",
+      "default": "$(whoami)@$(hostname):$(pwd)\\$"
     },
     {
-      "type": 1,
-      "name": "plex:latest",
-      "image": "lscr.io/linuxserver/plex:latest",
-      "description": "This is a Portainer template for deploying plex:latest.",
-      "categories": [
-        "Media"
-      ],
-      "restart_policy": "unless-stopped",
-      "env": [
-        {
-          "name": "TZ",
-          "default": "Africa/Johannesburg"
-        },
-        {
-          "name": "PUID",
-          "default": "0"
-        },
-        {
-          "name": "PGID",
-          "default": "0"
-        },
-        {
-          "name": "PATH",
-          "default": "/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        },
-        {
-          "name": "HOME",
-          "default": "/root"
-        },
-        {
-          "name": "LANGUAGE",
-          "default": "en_US.UTF-8"
-        },
-        {
-          "name": "LANG",
-          "default": "en_US.UTF-8"
-        },
-        {
-          "name": "TERM",
-          "default": "xterm"
-        },
-        {
-          "name": "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
-          "default": "0"
-        },
-        {
-          "name": "S6_VERBOSITY",
-          "default": "1"
-        },
-        {
-          "name": "S6_STAGE2_HOOK",
-          "default": "/docker-mods"
-        },
-        {
-          "name": "VIRTUAL_ENV",
-          "default": "/lsiopy"
-        },
-        {
-          "name": "LSIO_FIRST_PARTY",
-          "default": "true"
-        },
-        {
-          "name": "NVIDIA_DRIVER_CAPABILITIES",
-          "default": "compute,video,utility"
-        },
-        {
-          "name": "DEBIAN_FRONTEND",
-          "default": "noninteractive"
-        },
-        {
-          "name": "PLEX_DOWNLOAD",
-          "default": "https://downloads.plex.tv/plex-media-server-new"
-        },
-        {
-          "name": "PLEX_ARCH",
-          "default": "amd64"
-        },
-        {
-          "name": "PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR",
-          "default": "/config/Library/Application Support"
-        },
-        {
-          "name": "PLEX_MEDIA_SERVER_HOME",
-          "default": "/usr/lib/plexmediaserver"
-        },
-        {
-          "name": "PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS",
-          "default": "6"
-        },
-        {
-          "name": "PLEX_MEDIA_SERVER_USER",
-          "default": "abc"
-        },
-        {
-          "name": "PLEX_MEDIA_SERVER_INFO_VENDOR",
-          "default": "Docker"
-        },
-        {
-          "name": "PLEX_MEDIA_SERVER_INFO_DEVICE",
-          "default": "Docker Container (LinuxServer.io)"
-        }
-      ],
-      "volumes": [
-        {
-          "bind": "${/downloads/movies}",
-          "container": "/movies"
-        },
-        {
-          "bind": "${/containers/plex/library}",
-          "container": "/config"
-        },
-        {
-          "bind": "${/downloads/series}",
-          "container": "/tv"
-        }
-      ],
-      "ports": [
-        "${1005}:32400"
-      ]
+      "name": "PATH",
+      "default": "/lsiopy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     },
     {
-      "type": 1,
-      "name": "pia-qbittorrent:latest",
-      "image": "j4ym0/pia-qbittorrent:latest",
-      "description": "This is a Portainer template for deploying pia-qbittorrent:latest.",
-      "categories": [
-        "Media"
-      ],
-      "restart_policy": "unless-stopped",
-      "env": [
-        {
-          "name": "PASSWORD",
-          "default": "NS89ZzygEG"
-        },
-        {
-          "name": "USER",
-          "default": "p1338289"
-        },
-        {
-          "name": "PATH",
-          "default": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-        },
-        {
-          "name": "REGION",
-          "default": "Netherlands"
-        },
-        {
-          "name": "WEBUI_PORT",
-          "default": "8888"
-        },
-        {
-          "name": "DNS_SERVERS",
-          "default": "84.200.69.80,84.200.70.40"
-        },
-        {
-          "name": "DEBIAN_FRONTEND",
-          "default": "noninteractive"
-        }
-      ],
-      "volumes": [
-        {
-          "bind": "${/containers/vpnTorrent/config}",
-          "container": "/config:rw"
-        },
-        {
-          "bind": "${/downloads}",
-          "container": "/downloads:rw"
-        }
-      ],
-      "ports": [
-        "${1006}:8888"
-      ]
+      "name": "HOME",
+      "default": "/root"
+    },
+    {
+      "name": "TERM",
+      "default": "xterm"
+    },
+    {
+      "name": "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+      "default": "0"
+    },
+    {
+      "name": "S6_VERBOSITY",
+      "default": "1"
+    },
+    {
+      "name": "S6_STAGE2_HOOK",
+      "default": "/docker-mods"
+    },
+    {
+      "name": "VIRTUAL_ENV",
+      "default": "/lsiopy"
+    },
+    {
+      "name": "LSIO_FIRST_PARTY",
+      "default": "true"
+    },
+    {
+      "name": "XDG_CONFIG_HOME",
+      "default": "/config/xdg"
     }
+  ],
+  "volumes": [
+    {
+      "bind": "${/downloads/movies}",
+      "container": "/movies"
+    },
+    {
+      "bind": "${/containers/radarr/config}",
+      "container": "/config"
+    },
+    {
+      "bind": "${/downloads}",
+      "container": "/downloads"
+    }
+  ],
+  "ports": [
+    "${1001}:7878"
   ]
 }
