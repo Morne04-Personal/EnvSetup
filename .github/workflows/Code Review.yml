@@ -1,0 +1,3 @@
+              - name: AI Code Review Action
+                uses: freeedcom/ai-codereviewer@v2.7.0
+            
